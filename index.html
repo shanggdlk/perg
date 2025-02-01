@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pittsburgh Experimental Research Group (PERG)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background: url('https://via.placeholder.com/1500x500') no-repeat center center; background-size: cover; color: white; padding: 2em; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        header img { max-width: 200px; display: block; margin: 10px auto; }
+        nav { background: #0055A4; padding: 1em; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
+        nav a:hover { color: #FFD700; }
+        section { padding: 30px; max-width: 1000px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .members-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .member { display: flex; align-items: center; background: #f9f9f9; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .member img { width: 80px; height: 80px; border-radius: 50%; margin-right: 15px; }
+        .publications-container, .news-container { 
+            max-height: 400px; 
+            overflow-y: auto; 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            background: #fafafa; 
+            border-radius: 8px; 
+            scrollbar-width: thin; 
+            scrollbar-color: #0055A4 #f4f4f4; 
+        }
+        .publications-container::-webkit-scrollbar, .news-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .publications-container::-webkit-scrollbar-thumb, .news-container::-webkit-scrollbar-thumb {
+            background-color: #0055A4;
+            border-radius: 4px;
+        }
+        .publications-container::-webkit-scrollbar-track, .news-container::-webkit-scrollbar-track {
+            background-color: #f4f4f4;
+        }
+        .publications-container p, .news-container p { margin: 10px 0; padding: 10px; background: #fff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+        footer { background: #003366; color: white; text-align: center; padding: 1.5em; margin-top: 30px; }
+        .sensor-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
+        .wireless-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
+        .mobile-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
+        .earbuds-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://via.placeholder.com/200" alt="University of Pittsburgh Logo">
+        <h1>Pittsburgh Experimental Research Group (PERG)</h1>
+        <p>Innovating at the intersection of hardware, sensors, wireless systems, and mobile health</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#people">People</a>
+        <a href="#publications">Publications</a>
+        <a href="#news">Recent News</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to the Pittsburgh Experimental Research Group (PERG)! We specialize in cutting-edge technologies in wireless communication, sensor networks, and mobile health applications. Our team is passionate about advancing the integration of wearable devices, health sensors, and wireless technologies for impactful real-world solutions.</p>
+    </section>
+    <section id="research">
+        <h2>Ongoing Research</h2>
+        <p>Our research focuses on developing ultra-low-cost health trackers, wireless mobile systems, and sensor technologies that improve healthcare in resource-constrained regions. We are actively working on projects involving wearable health sensors, digital twins for smart cities, and innovative wireless communication protocols.</p>
+        <div>
+            <img src="https://via.placeholder.com/40" alt="Sensor Icon" class="sensor-icon"><strong>Wireless Sensing</strong>: Exploring advanced sensors for health and environment monitoring.
+            <img src="https://via.placeholder.com/40" alt="Wireless Icon" class="wireless-icon"><strong>Wireless Communication</strong>: Improving connectivity for IoT and mobile health.
+            <img src="https://via.placeholder.com/40" alt="Mobile Icon" class="mobile-icon"><strong>Mobile Health</strong>: Using smartphones for remote health diagnostics and patient monitoring.
+            <img src="https://via.placeholder.com/40" alt="Earbuds Icon" class="earbuds-icon"><strong>Wearable Devices</strong>: Transforming earbud technologies into health monitoring tools.
+        </div>
+    </section>
+    <section id="people">
+        <h2>Group Members</h2>
+        <div class="members-container">
+            <div class="member"><img src="member1.jpg" alt="Member 1"><p>Longfei Shangguan - Principal Investigator</p></div>
+            <div class="member"><img src="member2.jpg" alt="Member 2"><p>Tao Chen - Postdoc</p></div>
+            <div class="member"><img src="member3.jpg" alt="Member 3"><p>Zhenlin An - Postdoc</p></div>
+            <div class="member"><img src="member4.jpg" alt="Member 4"><p>Yongjie Yang - PhD student</p></div>
+            <div class="member"><img src="member5.jpg" alt="Member 5"><p>Zhiwei Ren - PhD Student</p></div>
+            <div class="member"><img src="member6.jpg" alt="Member 6"><p>Vaibhav Singh - PhD Student</p></div>
+            <div class="member"><img src="member7.jpg" alt="Member 7"><p>Junbo Li - PhD Student</p></div>
+            <div class="member"><img src="member8.jpg" alt="Member 8"><p>Hongbo Lan - PhD Student</p></div>
+            <div class="member"><img src="member8.jpg" alt="Member 9"><p>Haoyu Li - Master Student</p></div>
+            <div class="member"><img src="member8.jpg" alt="Member 10"><p>Maanya Shanker - Master Student</p></div>
+           <div class="member"><img src="member8.jpg" alt="Member 11"><p>Niccolo Nobili - Undergraduate Student</p></div>
+        </div>
+    </section>
+    <section id="publications">
+        <h2>Publications</h2>
+        <div class="publications-container">
+            <p>1. xx.</p>
+            <p>1. xx.</p>
+            <p>1. xx.</p>
+        </div>
+    </section>
+    <section id="news">
+        <h2>Recent News</h2>
+        <div class="news-container">
+            <p><strong>March 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+            <p><strong>February 2024:</strong> xxx.</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: longfei@pitt.edu</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Pittsburgh Experimental Research Group (PERG). All rights reserved.</p>
+    </footer>
+</body>
+</html>
