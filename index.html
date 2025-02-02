@@ -41,51 +41,45 @@
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
         nav a:hover { color: #FFD700; }
         section { padding: 30px; max-width: 1000px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-        /* .members-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .member { display: flex; align-items: center; background: #f9f9f9; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-        .member img { width: 80px; height: auto; border-radius: 50%; margin-right: 15px; }
-        */
-        .members-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 20px; 
-        }
         
-        .member { 
-            display: flex; 
-            align-items: center; 
-            padding: 15px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        /* Members Container */
+        .members-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
-        
-        /* Light Professional Theme */
-        .member.light-theme { 
+
+        .member {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .member.light-theme {
             background: #F5F7FA; /* Light grayish-blue */
-            color: #333; 
-            border: 1px solid #D1D5DB; 
+            color: #333;
+            border: 1px solid #D1D5DB;
         }
-        
-        /* Dark Elegant Theme */
-        .member.dark-theme { 
-            background: #2C3E50; /* Deep blue-gray */
-            color: #ECF0F1; /* Light text for contrast */
-            border: 1px solid #34495E; 
-        }
-        
-        /* Vibrant Theme */
-        .member.vibrant-theme { 
+
+        .member.vibrant-theme {
             background: #FFFAF3; /* Warm peach */
-            color: #333; 
-            border: 1px solid #E8C48F; 
+            color: #333;
+            border: 1px solid #E8C48F;
         }
-        
-        /* Member Image */
-        .member img { 
-            width: 80px; 
-            height: auto; 
-            border-radius: 50%; 
-            margin-right: 15px; 
+
+        .member img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin-right: 15px;
         }
         
         .publications-container, .news-container { 
