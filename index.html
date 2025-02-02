@@ -51,15 +51,31 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .slideshow-container img {
-            width: 100%;
+        .slide {
             display: none;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
             border-radius: 8px;
         }
-        .slideshow-container img.active {
+        .active {
             display: block;
-            animation: fade 1.5s ease-in-out;
         }
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
         @keyframes fade {
             from { opacity: 0.4; }
             to { opacity: 1; }
@@ -82,31 +98,24 @@
     <section id="about">
         <h2>About Us</h2>
         <p>Welcome to the Pittsburgh Experimental Research Group (PERG)! Our team builds cutting-edge technologies in wireless communication, sensing systems, and mobile health applications. Our team is passionate about advancing the integration of wearable devices, health sensors, and wireless technologies for impactful real-world solutions.</p>
-         <!-- Slideshow Container -->
+        <!-- Slideshow Container -->
         <div class="slideshow-container">
-            <div class="slide">
-                <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_field_test.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal." class="active">
-                <div class="slide-caption">Demo our earable health sensing systems at a village near Saint-Louis, Senegal.</div>
+            <div class="slide active">
+                <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_field_test.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal.">
+                <div class="caption">Demo our earable health sensing systems at a village near Saint-Louis, Senegal.</div>
             </div>
             <div class="slide">
                 <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_visiting1.jpeg" alt="Building collaborations with faculties and doctors from Gaston Berger University, Saint-Louis, Senegal.">
-                <div class="slide-caption">Building collaborations with faculties and doctors from Gaston Berger University, Saint-Louis, Senegal.</div>
+                <div class="caption">Building collaborations with faculties and doctors from Gaston Berger University, Saint-Louis, Senegal.</div>
             </div>
             <div class="slide">
                 <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_visting2.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal.">
-                <div class="slide-caption">Demo our earable health sensing systems at a village near Saint-Louis, Senegal.</div>
+                <div class="caption">Demo our earable health sensing systems at a village near Saint-Louis, Senegal.</div>
             </div>
             <div class="slide">
                 <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/mobicom_best_paper_award.jpeg" alt="Asclepius won MobiCom'24 Best-Paper Award.">
-                <div class="slide-caption">Asclepius won MobiCom'24 Best-Paper Award.</div>
+                <div class="caption">Asclepius won MobiCom'24 Best-Paper Award.</div>
             </div>
-        </div>
-        <!-- Slideshow Container -->
-        <div class="slideshow-container">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_field_test.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal." class="active">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_visiting1.jpeg" alt="Engaging with faculties and doctors from Gaston Berger University, Saint-Louis, Senegal.">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_visting2.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal.">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/mobicom_best_paper_award.jpeg" alt="Asclepius won MobiCom'24 Best-Paper Award.">
         </div>
     </section>
     <section id="research">
@@ -182,10 +191,10 @@
     <footer>
         <p>&copy; 2025 Pittsburgh Experimental Research Group (PERG). All rights reserved.</p>
     </footer>
+    <!-- JavaScript for Slideshow -->
     <script>
-        // JavaScript for the Slideshow
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.slideshow-container img');
+        const slides = document.querySelectorAll('.slide');
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
