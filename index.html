@@ -41,6 +41,29 @@
         .wireless-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
         .mobile-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
         .earbuds-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slideshow-container img {
+            width: 100%;
+            display: none;
+            border-radius: 8px;
+        }
+        .slideshow-container img.active {
+            display: block;
+            animation: fade 1.5s ease-in-out;
+        }
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -59,6 +82,13 @@
     <section id="about">
         <h2>About Us</h2>
         <p>Welcome to the Pittsburgh Experimental Research Group (PERG)! Our team builds cutting-edge technologies in wireless communication, sensing systems, and mobile health applications. Our team is passionate about advancing the integration of wearable devices, health sensors, and wireless technologies for impactful real-world solutions.</p>
+        <!-- Slideshow Container -->
+        <div class="slideshow-container">
+            <img src="https://via.placeholder.com/800x400?text=Research+Lab+1" alt="Research Lab 1" class="active">
+            <img src="https://via.placeholder.com/800x400?text=Research+Lab+2" alt="Research Lab 2">
+            <img src="https://via.placeholder.com/800x400?text=Team+Collaboration" alt="Team Collaboration">
+            <img src="https://via.placeholder.com/800x400?text=Innovative+Projects" alt="Innovative Projects">
+        </div>
     </section>
     <section id="research">
         <h2>Ongoing Research</h2>
