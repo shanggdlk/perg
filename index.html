@@ -111,8 +111,10 @@
             position: relative;
         }
         .slide img {
-            width: 100%;
             border-radius: 8px;
+            width: 100%;
+            height: 400px; /* Set a uniform height */
+            object-fit: cover; /* Ensures the image fills the space without stretching */
         }
         .active {
             display: block;
