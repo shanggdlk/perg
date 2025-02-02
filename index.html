@@ -137,6 +137,32 @@
             from { opacity: 0.4; }
             to { opacity: 1; }
         }
+        .funding-logos {
+        display: flex;
+        justify-content: center; /* Centers the logos horizontally */
+        align-items: center;
+        gap: 20px; /* Adds space between logos */
+        flex-wrap: wrap; /* Ensures responsiveness */
+        padding: 20px 0;
+    }
+
+    .funding-logo {
+        width: 150px; /* Sets uniform width for all logos */
+        height: auto; /* Maintains aspect ratio */
+        max-height: 80px; /* Prevents overly large logos */
+        object-fit: contain; /* Ensures proper scaling */
+    }
+
+    @media (max-width: 768px) {
+        .funding-logos {
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            gap: 10px;
+        }
+
+        .funding-logo {
+            width: 120px; /* Slightly smaller for mobile */
+        }
+    }
     </style>
 </head>
 <body>
@@ -183,6 +209,14 @@
                 <li><strong>Sensing - Inside-out & Outside-in</strong>: Exploring various sensor modalities (acoustic, vision, and many others) for human-centric sensing.</li>
                 <li><strong>Communication - Wireless Digital Twin</strong>: Understanding the wireless world through neural ray tracing.</li>
             </ul> 
+        </div>
+        <!-- Logos of funding agencies -->
+        <div class="funding-logos">
+            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/nsf.png" alt="Funding Agency 1" class="funding-logo">
+            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/massAITC.png" alt="Funding Agency 2" class="funding-logo">
+            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/ardc.png" alt="Funding Agency 3" class="funding-logo">
+            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/google.png" alt="Funding Agency 4" class="funding-logo">
+            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/meta.png" alt="Funding Agency 5" class="funding-logo">
         </div>
     </section>
     <section id="people">
