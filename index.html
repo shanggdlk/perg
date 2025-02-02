@@ -36,8 +36,32 @@
             background-color: #f4f4f4;
         }
         .publications-container p, .news-container p { margin: 10px 0; padding: 10px; background: #fff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
-        .publications-container p:nth-child(odd) { color: #0055A4; }
-        .publications-container p:nth-child(even) { color: #FF4500; }
+        .publications-container p, .news-container p { 
+    margin: 10px 0; 
+    padding: 10px; 
+    background: #fff; 
+    border-radius: 4px; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+/* Alternating background colors for Publications */
+.publications-container p:nth-child(odd) { 
+    background-color: #e3f2fd; /* Light blue for odd items */
+}
+
+.publications-container p:nth-child(even) { 
+    background-color: #fce4ec; /* Light pink for even items */
+}
+
+/* Alternating background colors for News */
+.news-container p:nth-child(odd) { 
+    background-color: #f3e5f5; /* Light purple for odd items */
+}
+
+.news-container p:nth-child(even) { 
+    background-color: #e0f7fa; /* Light cyan for even items */
+}
+        
         footer { background: #003366; color: white; text-align: center; padding: 1.5em; margin-top: 30px; }
         .sensor-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
         .wireless-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
