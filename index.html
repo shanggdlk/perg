@@ -41,9 +41,53 @@
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
         nav a:hover { color: #FFD700; }
         section { padding: 30px; max-width: 1000px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-        .members-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        /* .members-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .member { display: flex; align-items: center; background: #f9f9f9; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
         .member img { width: 80px; height: auto; border-radius: 50%; margin-right: 15px; }
+        */
+        .members-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+        
+        .member { 
+            display: flex; 
+            align-items: center; 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+        
+        /* Light Professional Theme */
+        .member.light-theme { 
+            background: #F5F7FA; /* Light grayish-blue */
+            color: #333; 
+            border: 1px solid #D1D5DB; 
+        }
+        
+        /* Dark Elegant Theme */
+        .member.dark-theme { 
+            background: #2C3E50; /* Deep blue-gray */
+            color: #ECF0F1; /* Light text for contrast */
+            border: 1px solid #34495E; 
+        }
+        
+        /* Vibrant Theme */
+        .member.vibrant-theme { 
+            background: #FFFAF3; /* Warm peach */
+            color: #333; 
+            border: 1px solid #E8C48F; 
+        }
+        
+        /* Member Image */
+        .member img { 
+            width: 80px; 
+            height: auto; 
+            border-radius: 50%; 
+            margin-right: 15px; 
+        }
+        
         .publications-container, .news-container { 
             max-height: 400px; 
             overflow-y: auto; 
@@ -233,9 +277,9 @@
     <section id="people">
         <h2>Group Members</h2>
         <div class="members-container">
-            <div class="member"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/longfei.png" alt="Member 1"><p>Longfei Shangguan - PI</p></div>
-            <div class="member"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/tao.jpg" alt="Member 2"><p>Tao Chen - Postdoc</p></div>
-            <div class="member"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/zhenlin.png" alt="Member 3"><p>Zhenlin An - Postdoc</p></div>
+            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/longfei.png" alt="Member 1"><p>Longfei Shangguan - PI</p></div>
+            <div class="member dark-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/tao.jpg" alt="Member 2"><p>Tao Chen - Postdoc</p></div>
+            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/zhenlin.png" alt="Member 3"><p>Zhenlin An - Postdoc</p></div>
             <div class="member"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/yongjie.jpg" alt="Member 4"><p>Yongjie Yang - PhD student</p></div>
             <div class="member"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/zhiwei.jpeg" alt="Member 5"><p>Zhiwei Ren - PhD Student</p></div>
             <div class="member"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/vaibhav_crop.png" alt="Member 6"><p>Vaibhav Singh - PhD Student</p></div>
