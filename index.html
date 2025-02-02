@@ -163,5 +163,27 @@
     <footer>
         <p>&copy; 2025 Pittsburgh Experimental Research Group (PERG). All rights reserved.</p>
     </footer>
+    <script>
+        // JavaScript for the Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slideshow-container img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Change slide every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        // Initialize the first slide
+        showSlide(currentSlide);
+    </script>
 </body>
 </html>
