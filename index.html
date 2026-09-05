@@ -1,308 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pittsburgh Experimental Research Group (PERG)</title>
-    <style>
-        /* About Section */
-        #about {
-            background-color: #f0f4f8; /* Light blue-gray, soft and neutral */
-        }
-        
-        /* Research Section */
-        #research {
-            background-color: #e8f5e9; /* Light green, symbolizing innovation and growth */
-        }
-        
-        /* People Section */
-        #people {
-            background-color: #fff3e0; /* Light orange, warm and inviting */
-        }
-        
-        /* Publications Section */
-        #publications {
-            background-color: #f5f5f5; /* Light gray, neutral and professional */
-        }
-        
-        /* News Section */
-        #news {
-            background-color: #fff8e1; /* Light yellow, bright and attention-grabbing */
-        }
-        
-        /* Contact Section */
-        #contact {
-            background-color: #e3f2fd; /* Light blue, calming and professional */
-        }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        header { background: url('https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/pitt2.jpg') no-repeat center center; background-size: cover; color: white; padding: 2em; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-        header img { max-width: 200px; display: block; margin: 10px auto; }
-        nav { background: #0055A4; padding: 1em; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
-        nav a:hover { color: #FFD700; }
-        section { padding: 30px; max-width: 1000px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); opacity: 0;
-            transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;}
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }        
-        /* Members Container */
-        .members-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .member {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .member.light-theme {
-            background: #F5F7FA; /* Light grayish-blue */
-            color: #333;
-            border: 1px solid #D1D5DB;
-        }
-
-        .member.vibrant-theme {
-            background: #FFFAF3; /* Warm peach */
-            color: #333;
-            border: 1px solid #E8C48F;
-        }
-
-        .member img {
-            width: 80px;
-            height: auto;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-        
-        .publications-container, .news-container { 
-            max-height: 400px; 
-            overflow-y: auto; 
-            border: 1px solid #ddd; 
-            padding: 15px; 
-            background: #fafafa; 
-            border-radius: 8px; 
-            scrollbar-width: thin; 
-            scrollbar-color: #0055A4 #f4f4f4; 
-        }
-        .publications-container::-webkit-scrollbar, .news-container::-webkit-scrollbar {
-            width: 8px;
-        }
-        .publications-container::-webkit-scrollbar-thumb, .news-container::-webkit-scrollbar-thumb {
-            background-color: #0055A4;
-            border-radius: 4px;
-        }
-        .publications-container::-webkit-scrollbar-track, .news-container::-webkit-scrollbar-track {
-            background-color: #f4f4f4;
-        }
-        .publications-container p, .news-container p { margin: 10px 0; padding: 10px; background: #fff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
-        .publications-container p, .news-container p { 
-            margin: 10px 0; 
-            padding: 10px; 
-            background: #fff; 
-            border-radius: 4px; 
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
-        }
-
-        /* Alternating background colors for Publications */
-        .publications-container p:nth-child(odd) { 
-            background-color: #e3f2fd; /* Light blue for odd items */
-        }
-        
-        .publications-container p:nth-child(even) { 
-            background-color: #fce4ec; /* Light pink for even items */
-        }
-        
-        /* Alternating background colors for News */
-        .news-container p:nth-child(odd) { 
-            background-color: #f3e5f5; /* Light purple for odd items */
-        }
-        
-        .news-container p:nth-child(even) { 
-            background-color: #e0f7fa; /* Light cyan for even items */
-        }
-        
-        footer { background: #003366; color: white; text-align: center; padding: 1.5em; margin-top: 30px; }
-        .sensor-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
-        .wireless-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
-        .mobile-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
-        .earbuds-icon { width: 40px; margin-right: 10px; vertical-align: middle; }
-
-        /* Slideshow Styles */
-        .slideshow-container {
-            max-width: 800px;
-            position: relative;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .slide {
-            display: none;
-            position: relative;
-        }
-        .slide img {
-            border-radius: 8px;
-            width: 100%;
-            height: 400px; /* Set a uniform height */
-            object-fit: cover; /* Ensures the image fills the space without stretching */
-        }
-        .active {
-            display: block;
-        }
-        .caption {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 16px;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-        }
-
-        @keyframes fade {
-            from { opacity: 0.4; }
-            to { opacity: 1; }
-        }
-        .funding-logos {
-        display: flex;
-        justify-content: center; /* Centers the logos horizontally */
-        align-items: center;
-        gap: 20px; /* Adds space between logos */
-        flex-wrap: wrap; /* Ensures responsiveness */
-        padding: 20px 0;
-    }
-
-    .funding-logo {
-        width: 150px; /* Sets uniform width for all logos */
-        height: auto; /* Maintains aspect ratio */
-        max-height: 80px; /* Prevents overly large logos */
-        object-fit: contain; /* Ensures proper scaling */
-    }
-
-    @media (max-width: 768px) {
-        .funding-logos {
-            flex-wrap: wrap; /* Allows wrapping on smaller screens */
-            gap: 10px;
-        }
-
-        .funding-logo {
-            width: 120px; /* Slightly smaller for mobile */
-        }
-    }
-    .gratitude-message {
-        font-size: 1.2rem; /* Slightly larger than body text */
-        font-weight: bold; /* Emphasizes gratitude */
-        text-align: center; /* Centers the message */
-        margin-bottom: 15px; /* Adds spacing before logos */
-        color: #333; /* Uses a dark shade for readability */
-    }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PERG · Pittsburgh Experimental Research Group</title>
+  <meta name="description" content="Pittsburgh Experimental Research Group at the University of Pittsburgh. Research in computing, sensing, and wireless communication.">
+  <link rel="canonical" href="https://shanggdlk.github.io/perg/">
+  <link rel="stylesheet" href="perg.css">
 </head>
 <body>
-    <header>
-        <h1>Pittsburgh Experimental Research Group (PERG)</h1>
-        <p>Innovating at the intersection of AI, Wearable, and Wireless systems</p>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#people">People</a>
-        <a href="#publications">Publications</a>
-        <a href="#news">Recent News</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Welcome to the Pittsburgh Experimental Research Group (PERG)! Our team builds cutting-edge technologies in wireless communication, sensing systems, and mobile health applications. Our team is passionate about advancing the integration of wearable devices, health sensors, and wireless technologies for impactful real-world solutions.</p>
-        <!-- Slideshow Container -->
-        <div class="slideshow-container">
-            <div class="slide active">
-                <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_field_test.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal.">
-                <div class="caption">Demo our earable health sensing systems at a village near Saint-Louis, Senegal.</div>
-            </div>
-            <div class="slide">
-                <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_visiting1.jpeg" alt="Building collaborations with faculties and doctors from Gaston Berger University, Saint-Louis, Senegal.">
-                <div class="caption">Building collaborations with faculties and doctors from Gaston Berger University, Saint-Louis, Senegal.</div>
-            </div>
-            <div class="slide">
-                <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/Senegal_visting2.jpeg" alt="Demo our earable health sensing systems at a village near Saint-Louis, Senegal.">
-                <div class="caption">Demo our earable health sensing systems at a village near Saint-Louis, Senegal.</div>
-            </div>
-            <div class="slide">
-                <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/mobicom_best_paper_award.jpeg" alt="Asclepius won MobiCom'24 Best-Paper Award.">
-                <div class="caption">Asclepius won MobiCom'24 Best-Paper Award.</div>
-            </div>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#about">PERG<span>University of Pittsburgh</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#research">Research</a><a href="#people">People</a><a href="#publications">Publications</a><a href="#life">Group Life</a><a href="#news">News</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section id="about" class="hero container">
+      <div class="hero-copy">
+        <h1>Pittsburgh Experimental Research Group</h1>
+        <a class="text-link" href="#research">Explore our research <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="hero-photo">
+        <a href="imgs/group-dinner-2026-08-27.jpg"><img src="imgs/group-dinner-2026-08-27.jpg" alt="PERG members and family gathered around a restaurant table for group dinner" width="5712" height="4284" fetchpriority="high"></a>
+        <figcaption><span>Group dinner</span><time datetime="2026-08-27">August 27, 2026</time></figcaption>
+      </figure>
     </section>
-    <section id="research">
-        <h2>Ongoing Research</h2>
-        <div>
-            <ul>
-                <li><strong>Computing - Sensor-in-the-loop AI Agent</strong>: Developing personalized AI agents through multi-modal sensor technologies.</li>
-                <li><strong>Sensing - Inside-out & Outside-in</strong>: Exploring various sensor modalities (acoustic, vision, and many others) for human-centric sensing.</li>
-                <li><strong>Communication - Wireless Digital Twin</strong>: Understanding the wireless world through neural ray tracing.</li>
-            </ul> 
-        </div>
-        <p class="gratitude-message">
-        We express our gratitude to the following agencies for their support of our research.
-        </p>
-        <!-- Logos of funding agencies -->
-        <div class="funding-logos">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/nsf.png" alt="Funding Agency 1" class="funding-logo">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/massAITC.png" alt="Funding Agency 2" class="funding-logo">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/pitt_sci.png" alt="Funding Agency 3" class="funding-logo">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/ardc.png" alt="Funding Agency 4" class="funding-logo">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/google.png" alt="Funding Agency 5" class="funding-logo">
-            <img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/meta.png" alt="Funding Agency 6" class="funding-logo">
-        </div>
+    <section id="research" class="section container">
+      <div class="section-heading"><h2>Research</h2></div>
+      <div class="research-grid">
+        <article><h3>Computing</h3><p>Efficient mobile and AI systems.</p><p class="muted">Sensor-in-the-loop AI agents, efficient AI serving systems, and edge computing.</p><a class="text-link" href="https://shanggdlk.github.io/#research">Explore projects ↗</a></article>
+        <article><h3>Sensing</h3><p>Multi-modal sensing for human behavior and environment understanding.</p><p class="muted">Earable computing, mobile health, and egocentric vision systems.</p><a class="text-link" href="https://shanggdlk.github.io/#research">Explore projects ↗</a></article>
+        <article><h3>Communication</h3><p>Wireless digital twins for channel modeling and optimization.</p><p class="muted">Neural ray tracing, cross-link and cross-band modeling, and low-power wireless systems.</p><a class="text-link" href="https://shanggdlk.github.io/#research">Explore projects ↗</a></article>
+      </div>
     </section>
-    <section id="people">
-        <h2>Group Members</h2>
-        <div class="members-container">
-            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/longfei.png" alt="Member 1"><p>Longfei Shangguan - PI</p></div>
-            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/yongjie.jpeg" alt="Member 2"><p>Yongjie Yang - PhD student</p></div>
-            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/zhiwei.jpeg" alt="Member 3"><p>Zhiwei Ren - PhD Student</p></div>
-            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/vaibhav_crop.png" alt="Member 4"><p>Vaibhav Singh - PhD Student</p></div>
-            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/junbo.jpeg" alt="Member 5"><p>Junbo Li - PhD Student</p></div>
-            <div class="member light-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/hongbo.jpeg" alt="Member 6"><p>Hongbo Lan - PhD Student</p></div>
-        </div>
-        <h2>Alumni</h2>
-        <div class="members-container">
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/yuxuan.jpg" alt="Member 1"><p>Yuxuan Zhang - master student, now PhD at TAMU.</p></div>
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/yujing.jpeg" alt="Member 2"><p>Yujing Huang - undergraduate researcher, now PhD at U Buffalo.</p></div>
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/tao.jpg" alt="Member 3"><p>Tao Chen - Postdoc, now senior researcher at Samsung Research America.</p></div>
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/maanya.png" alt="Member 4"><p>Maanya Shanker - Master Student, now software engineer at Bloomberg.</p></div>
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/niccolo.jpg" alt="Member 5"><p>Niccolo Nobili - Undergraduate Student, now software engineer at Proofpilot.</p></div>
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/haoyu.jpeg" alt="Member 6"><p>Haoyu Li - Master Student, now research asssitant at Duke University.</p></div>
-            <div class="member vibrant-theme"><img src="https://raw.githubusercontent.com/shanggdlk/perg/refs/heads/main/imgs/zhenlin.png" alt="Member 7"><p>Zhenlin An - Postdoc, now an assistant professor at University of Georgia.</p></div>
-        </div>
+    <section id="people" class="section container">
+      <div class="section-heading"><p class="eyebrow">People</p><h2>The group.</h2></div>
+      <article class="pi">
+        <img src="imgs/longfei.png" width="88" height="88" alt="Longfei Shangguan" loading="lazy">
+        <div><h3><a href="https://shanggdlk.github.io/">Longfei Shangguan</a></h3><p>Principal Investigator · Associate Professor</p><p class="muted">University of Pittsburgh</p></div>
+      </article>
+      <h3 class="subheading">Current Members</h3>
+      <div class="people-grid">
+        <article class="person"><span class="avatar "><img src="imgs/yongjie.jpeg" alt="Yongjie Yang" loading="lazy"></span><div><h4>Yongjie Yang<span>5th year</span></h4><p>PhD Student</p><p class="interest">Earable Computing</p></div></article>
+        <article class="person"><span class="avatar tianyu"><img src="imgs/tianyu.jpg" alt="Tianyu Wang" loading="lazy"></span><div><h4>Tianyu Wang<span>5th year</span></h4><p>PhD Student</p><p class="interest">System for AI</p></div></article>
+        <article class="person"><span class="avatar "><img src="imgs/zhiwei.jpeg" alt="Zhiwei Ren" loading="lazy"></span><div><h4>Zhiwei Ren<span>4th year</span></h4><p>PhD Student</p><p class="interest">Sensor-in-the-loop AI Agent</p></div></article>
+        <article class="person"><span class="avatar vaibhav"><img src="imgs/vaibhav_crop.png" alt="Vaibhav Singh" loading="lazy"></span><div><h4>Vaibhav Singh<span>3rd year</span></h4><p>PhD Student</p><p class="interest">Wireless Digital Twin</p></div></article>
+        <article class="person"><span class="avatar junbo"><img src="imgs/junbo.jpeg" alt="Junbo Li" loading="lazy"></span><div><h4>Junbo Li<span>3rd year</span></h4><p>PhD Student</p><p class="interest">System for AI</p></div></article>
+        <article class="person"><span class="avatar hongbo"><img src="imgs/hongbo.jpeg" alt="Hongbo Lan" loading="lazy"></span><div><h4>Hongbo Lan<span>2nd year</span></h4><p>PhD Student</p><p class="interest">Egocentric Vision System</p></div></article>
+        <article class="person"><span class="avatar daiyang"><img src="imgs/daiyang.jpg" alt="Daiyang Yu" loading="lazy"></span><div><h4>Daiyang Yu<span>2nd year</span></h4><p>PhD Student</p><p class="interest">System for AI</p></div></article>
+      </div>
+      <h3 class="subheading">Alumni</h3>
+      <div class="alumni-grid">
+        <article class="person"><span class="avatar"><img src="imgs/zhenlin.png" alt="Zhenlin An" loading="lazy"></span><div><h4>Zhenlin An</h4><p>Postdoc → Assistant Professor, University of Georgia</p></div></article>
+        <article class="person"><span class="avatar"><img src="imgs/tao.jpg" alt="Tao Chen" loading="lazy"></span><div><h4>Tao Chen</h4><p>Postdoc → Senior Researcher, Samsung Research America</p></div></article>
+        <article class="person"><span class="avatar"><img src="imgs/maanya.png" alt="Maanya Shanker" loading="lazy"></span><div><h4>Maanya Shanker</h4><p>Master’s Student → Software Engineer, Bloomberg</p></div></article>
+        <article class="person"><span class="avatar"><img src="imgs/haoyu.jpeg" alt="Haoyu Li" loading="lazy"></span><div><h4>Haoyu Li</h4><p>Master’s Student → PhD Student, TAMU</p></div></article>
+        <article class="person"><span class="avatar"><img src="imgs/yuxuan.jpg" alt="Yuxuan Zhang" loading="lazy"></span><div><h4>Yuxuan Zhang</h4><p>Master’s Student → PhD Student, TAMU</p></div></article>
+        <article class="person"><span class="avatar"><img src="imgs/yujing.jpeg" alt="Yujing Huang" loading="lazy"></span><div><h4>Yujing Huang</h4><p>Undergraduate Researcher → PhD Student, University at Buffalo</p></div></article>
+        <article class="person"><span class="avatar"><img src="imgs/niccolo.jpg" alt="Niccolo Nobili" loading="lazy"></span><div><h4>Niccolo Nobili</h4><p>Undergraduate Student → Software Engineer, Proofpilot</p></div></article>
+      </div>
     </section>
-    <section id="publications">
-        <h2>Recent Publications</h2>
-        <div class="publications-container">
-            <p>[Eurosys'26] E-Cube: Event Enhanced Efficient Video Streaming for Drones</p>
-            <p>[SenSys'25] LeekyFeeder: In-Air Gesture Control Through Leaky Acoustic Waves</p>
-            <p>[SenSys'25] Toward Sensor-In-the-Loop LLM Agent: Benchmarks and Implications</p>
+    <section id="publications" class="section container">
+      <div class="section-heading heading-row"><h2>Publications</h2><a class="text-link" href="https://shanggdlk.github.io/#publications">Latest papers &amp; preprints ↗</a></div>
+      <div class="publication-list">
+        <article><span class="venue">UIST '26</span><h3>Be My Ears: Enabling Semantic Alerting for Earphone Wearers with Pheme.</h3><p>Zhiwei Ren, Yongjie Yang, Longfei Shangguan.</p><span class="coming-soon">Paper: Coming soon</span></article>
+        <article><span class="venue">EuroSys '26</span><h3>E-Cube: Event Enhanced Efficient Video Streaming for Drones.</h3><a href="https://doi.org/10.1145/3767295.3769375">Paper ↗</a></article>
+        <article><span class="venue">CVPR'26 OpenSUN3D workshop</span><h3>Efficient Structure-Guided 3D Physical Property Reasoning.</h3><a href="https://openaccess.thecvf.com/content/CVPR2026W/OpenSUN3D/papers/Lan_Efficient_Structure-Guided_3D_Physical_Property_Reasoning_CVPRW_2026_paper.pdf">Paper ↗</a></article>
+        <article><span class="venue">SenSys '25</span><h3>LeakyFeeder: In-Air Gesture Control Through Leaky Acoustic Waves.</h3><div class="paper-actions"><a href="https://doi.org/10.1145/3715014.3722054">Paper ↗</a><span class="award">Best Paper Nominee</span></div></article>
+        <article><span class="venue">SenSys '25</span><h3>Toward Sensor-In-the-Loop LLM Agent: Benchmarks and Implications.</h3><a href="https://doi.org/10.1145/3715014.3722082">Paper ↗</a></article>
+      </div>
+      <details class="archive"><summary>More publications · 2022–2025</summary><div class="archive-list">
             <p>[DySPAN'25] RadioTwin: A Digital Building Material Twin for Wideband, Cross-link, Cross-band Wireless Channel Prediction</p>
             <p>[IEEE Pervasive Computing, research brief] Towards Next-Generation Human Computer Interface Based On Earables</p>
             <p>[MobiSys'24] Enabling Hands-Free Voice Assistant Activation on Earphones</p>
-            <p>[CHI'24] MAF: Exploring Mobile Acoustic Field for Hand-to-Face Gesture Interactions/p>
+            <p>[CHI'24] MAF: Exploring Mobile Acoustic Field for Hand-to-Face Gesture Interactions</p>
             <p>[MobiCom'24] Exploring the Feasibility of Remote Cardiac Auscultation Using Earphones</p>
             <p>[MobiCom'24] Exploring Biomagnetism for Inclusive Vital Sign Monitoring: Modeling and Implementation</p>
             <p>[MobiCom'24] Map++: Towards User-Participatory Visual SLAM Systems with Efficient Map Expansion and Sharing</p>
@@ -313,18 +88,40 @@
             <p>[NSDI'22] CurvingLoRa to Boost LoRa Network Throughput Through Concurrent Transmissions</p>
             <p>[NSDI'22] SwarmMap: Scaling Up Real-time Collaborative Visual SLAM at the Edge</p>
             <p>[NSDI'22] Saiyan: Design and Implementation of a Low-power Demodulator for LoRa Backscatter Systems</p>
-        </div>
+      </div></details>
     </section>
-    <section id="news">
-        <h2>Recent News</h2>
-        <div class="news-container">
-            <p><strong>August 2025:</strong> E-Cube accepted to Eurosys'26.</p>
-            <p><strong>June 2025:</strong> Leekyfeeder was nominated for best paper at SenSys'25.</p>
+    <section id="life" class="section container">
+      <div class="section-heading"><h2>Group Life</h2></div>
+      <div class="slideshow" role="region" aria-roledescription="carousel" aria-label="Group Life photos">
+        <div class="slides" aria-live="off">
+        <figure><a href="imgs/Senegal_field_test.jpeg"><img src="imgs/Senegal_field_test.jpeg" alt="Demonstrating earable health sensing systems near Saint-Louis, Senegal" loading="lazy"></a><figcaption>Earable health sensing in the field<span>Near Saint-Louis, Senegal</span></figcaption></figure>
+        <figure><a href="imgs/Senegal_visiting1.jpeg"><img src="imgs/Senegal_visiting1.jpeg" alt="Research visit to Gaston Berger University, Senegal" loading="lazy"></a><figcaption>With our local collaborators.<span>Gaston Berger University, Senegal</span></figcaption></figure>
+        <figure><a href="imgs/Senegal_visting2.jpeg"><img src="imgs/Senegal_visting2.jpeg" alt="Group visit and health sensing demonstration in Senegal" loading="lazy"></a><figcaption>onsite testing of our earable health tracking systems.<span>Saint-Louis, Senegal</span></figcaption></figure>
+        <figure><a href="imgs/mobicom_best_paper_award.jpeg"><img src="imgs/mobicom_best_paper_award.jpeg" alt="Asclepius receiving the MobiCom 2024 Best Paper Award" loading="lazy"></a><figcaption>Asclepius · Best Paper Award<span>MobiCom 2024</span></figcaption></figure>
+        <figure><a href="imgs/group-dinner-2026-08-27.jpg"><img src="imgs/group-dinner-2026-08-27.jpg" alt="PERG group dinner" loading="lazy"></a><figcaption>Group dinner<span><time datetime="2026-08-27">August 27, 2026</time></span></figcaption></figure>
+        </div>
+        <div class="slideshow-footer" hidden>
+          <div class="slideshow-caption" aria-live="off"></div>
+          <div class="slideshow-controls">
+          <button type="button" data-slide="previous" aria-label="Previous photo">←</button>
+          <span class="slide-count" aria-live="off">1 / 5</span>
+          <button type="button" data-slide="next" aria-label="Next photo">→</button>
+          <button type="button" data-slide="play">Pause</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="news" class="section container">
+      <div class="section-heading"><p class="eyebrow">News</p><h2>From the group.</h2></div>
+      <div class="news-list"><p><time datetime="2026-08-27">Aug 27, 2026</time><span>PERG group dinner. <a href="imgs/group-dinner-2026-08-27.jpg">View photo ↗</a></span></p><p><time datetime="2026-08">Aug 2026</time><span>Be My Ears was accepted to UIST 2026.</span></p><p><time datetime="2025-08">Aug 2025</time><span>E-Cube was accepted to EuroSys 2026.</span></p></div>
+      <details class="archive"><summary>Earlier news</summary><div class="archive-list">
+
+            <p><strong>June 2025:</strong> LeakyFeeder was nominated for best paper at SenSys'25.</p>
             <p><strong>February 2025:</strong> awarded MassAITC Pilot Award! Thanks Massachusetts AI and Technology Center and National Institute on Aging (NIA).</p>
             <p><strong>January 2025:</strong> We visited Prof. Dame Diongue's group at Gaston Berger University, Senegal. What a wonderful trip!</p>
             <p><strong>November 2024:</strong> Asclepius won Best Paper Award at MobiCom'24!</p>
             <p><strong>September 2024:</strong> Wireless Digital Twin funded by Wireless and Spectrum program, thanks NSF.</p>
-            <p><strong>Augst 2024:</strong> Thanks Meta for supporting our research on Sensor-in-the-loop AI agent.</p>
+            <p><strong>August 2024:</strong> Thanks Meta for supporting our research on Sensor-in-the-loop AI agent.</p>
             <p><strong>March 2024:</strong> EarVoice accepted to MobiSys'24.</p>
             <p><strong>February 2024:</strong> CAREER Award! Thanks NSF.</p>
             <p><strong>January 2024:</strong> Mobile Acoustic Field (MAF) accepted to CHI'24.</p>
@@ -333,50 +130,21 @@
             <p><strong>July 2023:</strong> Bio-inspired system design funded by CCSS program, thanks NSF.</p>
             <p><strong>June 2023:</strong> APG and BioDrone accepted to MobiCom'23 with shepherding.</p>
             <p><strong>April 2023:</strong> awarded a Google Research Scholar Award, thanks Google.</p>
-        </div>
+      </div></details>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: longfei@pitt.edu</p>
+    <section class="section container supporters">
+      <h2>Research support</h2><p class="muted">We gratefully acknowledge the organizations supporting our research.</p>
+      <div class="funding-logos">
+        <img src="imgs/nsf.png" alt="National Science Foundation" loading="lazy">
+        <img src="imgs/massAITC.png" alt="MassAITC" loading="lazy">
+        <img src="imgs/pitt_sci.png" alt="Pitt School of Computing and Information" loading="lazy">
+        <img src="imgs/ardc.png" alt="ARDC" loading="lazy">
+        <img src="imgs/google.png" alt="Google" loading="lazy">
+        <img src="imgs/meta.png" alt="Meta" loading="lazy">
+      </div>
     </section>
-    <footer>
-        <p>&copy; 2025 Pittsburgh Experimental Research Group (PERG). All rights reserved.</p>
-    </footer>
-    <!-- JavaScript for Slideshow -->
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Change slide every 3 seconds
-        setInterval(nextSlide, 3000);
-
-        // Initialize the first slide
-        showSlide(currentSlide);
-
-        // Section fade-in animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            sections.forEach(section => observer.observe(section));
-        });
-    </script>
+  </main>
+  <footer class="container"><span>© 2026 Pittsburgh Experimental Research Group</span><a href="https://shanggdlk.github.io/">Longfei Shangguan ↗</a></footer>
+  <script src="slideshow.js" defer></script>
 </body>
 </html>
